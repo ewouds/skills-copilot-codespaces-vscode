@@ -1,14 +1,24 @@
 // create web server
-// listen to port 3000
-// return hello world as response
+var express = require('express');
+var app = express();
+var bodyParser = require('body-parser');
+var fs = require('fs');
 
-const http = require('http');
-const port = 3000;
-
-const server = http.createServer((req, res) => {
-    res.end('hello world\n');
+// set port number
+app.listen(3000, function(){
+  console.log("start! express server on port 3000");
 });
 
-server.listen(port, () => {
-    console.log(`server running on port ${port}`);
-});
+// set static directory path
+app.use(express.static('public'));
+
+// set body-parser
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
+
+// set view engine
+app.set('view engine', 'ejs');
+
+// set router
+
+  
