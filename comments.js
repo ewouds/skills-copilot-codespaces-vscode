@@ -1,10 +1,14 @@
 // create web server
 // listen to port 3000
 // return hello world as response
+
 const http = require('http');
+const port = 3000;
 
 const server = http.createServer((req, res) => {
-    res.end('Hello world from the server!');
+    res.end('hello world\n');
 });
 
-server.listen(3000, '');
+server.listen(port, () => {
+    console.log(`server running on port ${port}`);
+});
